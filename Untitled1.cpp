@@ -38,7 +38,7 @@ class Lex {
 		
 
 
-
+		//check for syntex error and pair up the token  
 		pair<Token, string> get_token() {
 			char curr_char;
 			string word, line;
