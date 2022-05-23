@@ -38,7 +38,7 @@ class Lex {
 		
 
 
-		//check for syntex error and pair up the token  
+		//check for syntex error and pair up the charater use token as key   
 		pair<Token, string> get_token() {
 			char curr_char;
 			string word, line;
@@ -75,7 +75,7 @@ class Lex {
                     return make_pair(identifier, word);
                 }
                 
-                //make all pairs in pair structure
+                //make in pair structure use token as key to the charater 
                 else if
 						(curr_char == '+') return make_pair(_plus, "+");
                 else if
