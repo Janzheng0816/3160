@@ -13,12 +13,17 @@ enum Token{identifier, literal, lparen, rparen, _plus, _minus, _times, equals, s
 class Lex {
 	public:             
         //read in file 
+        ifstream inputFile;
+        pair<Token, string> curr_token;
+        
+        
         Lex(string myFile) {
             inputFile.open(myFile);
         }
         ~Lex() {
             inputFile.close();
         } 
+        
 		// read in to tokenized the input file 
 		deque<pair<Token, string>> tokenizer() {           
 		deque<pair<Token, string>> t;
@@ -30,9 +35,9 @@ class Lex {
             t.push_back(make_pair(finished, "endPoint"));
             return t;
 		}
-	private:
-		ifstream inputFile;
-		pair<Token, string> curr_token;
+		
+
+
 
 		pair<Token, string> get_token() {
 			char curr_char;
@@ -96,12 +101,12 @@ class Lex {
 
 class Parser {
 	// set up datas 
-    private:
         deque<pair<Token, string>> tokens;
         pair<Token, string> curr_token;
         std::map<std::string, int> state;
-	//
-     public:
+	
+    public:
+     	
         Parser(deque<pair<Token, string>> tokens) {
             this->tokens = tokens;
         }
